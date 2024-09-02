@@ -22,4 +22,4 @@ gr.ChatInterface(chat,
                 description="""
 InternLM is mainly developed by Shanghai AI Laboratory.  
                  """,
-                 ).queue(1).launch()
+                 ).queue(1).launch(share=True)

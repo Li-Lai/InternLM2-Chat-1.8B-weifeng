@@ -1,6 +1,6 @@
-gradio==4.10.0
-transformers==4.42.0
-einops
+gradio==2.1.2
+transformers==4.38.0
+einops==0.8.0
 accelerate==0.33.0
 tiktoken==0.7.0
-sentencepiece
+sentencepiece==0.1.99

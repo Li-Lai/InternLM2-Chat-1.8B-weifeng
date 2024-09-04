@@ -39,6 +39,7 @@ os.system(f'cd {base_path} && git lfs pull')
 # base_path = '/root/InternLM/XTuner/internlm2_5-1_8b-chat'
 
 
+
 @dataclass
 class GenerationConfig:
     # this config is used for chat to provide more diversity
@@ -188,8 +189,12 @@ def on_btn_click():
 
 @st.cache_resource
 def load_model():
-    model = (AutoModelForCausalLM.from_pretrained(base_path,trust_remote_code=True))
-    tokenizer = AutoTokenizer.from_pretrained(base_path, trust_remote_code=True)
+    model = (AutoModelForCausalLM.from_pretrained(
+        base_path,
+        trust_remote_code=True).to(torch.bfloat16).cuda())
+    tokenizer = AutoTokenizer.from_pretrained(
+        base_path,
+        trust_remote_code=True)
     return model, tokenizer
 
 
